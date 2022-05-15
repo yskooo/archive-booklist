@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/322/books_1f4da.png" />
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>archive.</h1>
+            <nav>
+                <div class="lds-dual-ring active" id="loadingRing"></div>
+                <div class="logged-out" id="loggedOut">
+                    <button class="btn" id="logInBtn">Log in</button>
+                </div>
+                <div class="logged-in" id="loggedIn">
+                    <button class="btn" id="accountBtn">Account</button>
+                    <button class="btn" id="logOutBtn">Log out</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="main container">
+        <button class="btn btn-add" id="addBookBtn">+ Add Book</button>
+        <div class="book-grid" id="booksGrid"></div>
+    </main>
+    <footer class="footer">
+        <p><a href="">Built with 🕴️ by Ysko <i class="fab fa-github"></i></a></p>
+    </footer>
+    <div class="modal" id="addBookModal">
+        <form class="add-book-form" id="addBookForm">
+            <h3>Add new book</h3>
+            <input class="input" type="text" id="title" placeholder="Title" required maxlength="100" />
+            <p class="error-msg" id="errorMsg"></p>
+            <input class="input" type="text" id="author" placeholder="Author" required maxlength="100" />
+            <input class="input" type="number" id="pages" placeholder="Pages" required max="10000" />
+            <div class="is-read">
+                <label for="is-read">Have you read it?</label>
+                <input class="checkbox" type="checkbox" id="isRead" />
+            </div>
+            <button class="btn btn-light-green" type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="modal" id="accountModal"></div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: 'AIzaSyBv30hELJ-tYN-kLoFFsWmD9az7TNqMNec',
+            authDomain: 'library-ba067.firebaseapp.com',
+            projectId: 'library-ba067',
+            storageBucket: 'library-ba067.appspot.com',
+            messagingSenderId: '915404085981',
+            appId: '1:915404085981:web:c5a384ca4340b4b7e39934',
+        }
+        firebase.initializeApp(firebaseConfig)
+    </script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
