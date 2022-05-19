@@ -1,5 +1,4 @@
-// Data Structures
-
+//  Data Structures
 class Book {
     constructor(
         title = 'Unknown',
@@ -54,7 +53,7 @@ const loggedIn = document.getElementById('loggedIn')
 const loggedOut = document.getElementById('loggedOut')
 const loadingRing = document.getElementById('loadingRing')
 
-const setupNavbar = (user) => {
+const setUpNavbBar = (user) => {
     if (user) {
         loggedIn.classList.add('active')
         loggedOut.classList.remove('active')
@@ -293,7 +292,7 @@ const removeBookDB = async(title) => {
         .delete()
 }
 
-const toggleBookIsReadDB = async(book) => {
+consttoggleBookIsReadDB = async(book) => {
     db.collection('books')
         .doc(await getBookIdDB(book.title))
         .update({ isRead: !book.isRead })
@@ -309,7 +308,7 @@ const getBookIdDB = async(title) => {
     return bookId
 }
 
-// Utils
+//Utils
 
 const docsToBooks = (docs) => {
     return docs.map((doc) => {
@@ -333,6 +332,6 @@ const bookToDoc = (book) => {
         author: book.author,
         pages: book.pages,
         isRead: book.isRead,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
     }
 }
