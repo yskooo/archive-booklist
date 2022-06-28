@@ -130,7 +130,7 @@ input[type='number'] {
 
 .book-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     font-size: 20px;
     gap: var(--spacing-lg);
